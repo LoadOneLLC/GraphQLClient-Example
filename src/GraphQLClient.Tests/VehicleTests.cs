@@ -3,11 +3,7 @@ using GraphQLClient.Tests.Services;
 using GraphQLClientLibrary.Services;
 using Shouldly;
 using StructureMap;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

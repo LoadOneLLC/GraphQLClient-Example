@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GraphQLClient.Tests.Services
+﻿namespace GraphQLClient.Tests.Services
 {
     public interface IConfigurationSettings
     {

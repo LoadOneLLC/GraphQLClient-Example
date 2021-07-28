@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GraphQLClientLibrary.Models
 {
@@ -12,6 +10,7 @@ namespace GraphQLClientLibrary.Models
 
     public class AuthTokenResponse
     {
-        public string Access_Token { get; set; }
+        public string AccessToken { get; set; }
+        public DateTime AccessTokenExpiration { get; set; }
     }
 }

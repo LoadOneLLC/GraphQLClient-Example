@@ -28,7 +28,7 @@ namespace GraphQLClientLibrary.Services
         public async Task<string> GetBearerToken(string clientId, string secret)
         {
             HttpClient client = new HttpClient();
-            string uri = "https://app.load1.com/api/graphql/auth/token";
+            string uri = "https://app.load1.com/auth/token";
             var authenticateRequest = new AuthTokenRequest
             {
                 ClientID = clientId,
@@ -38,7 +38,7 @@ namespace GraphQLClientLibrary.Services
             var response = await client.PostAsync(uri, content);
             response.EnsureSuccessStatusCode();
             var authTokenResponse = JsonConvert.DeserializeObject<AuthTokenResponse>(await response.Content.ReadAsStringAsync());
-            return authTokenResponse.Access_Token;
+            return authTokenResponse.AccessToken;
         }
 
         public async Task<List<Vehicle>> QueryViaGraphQLClientIntegration(string bearerToken, GraphQLRequest queryRequest)

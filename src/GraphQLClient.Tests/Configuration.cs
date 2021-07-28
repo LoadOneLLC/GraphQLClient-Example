@@ -1,5 +1,4 @@
-﻿
-using StructureMap;
+﻿using StructureMap;
 using System;
 
 namespace GraphQLClient.Tests
