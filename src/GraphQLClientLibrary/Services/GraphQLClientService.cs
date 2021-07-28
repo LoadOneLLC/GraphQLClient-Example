@@ -28,7 +28,7 @@ namespace GraphQLClientLibrary.Services
         public async Task<string> GetBearerToken(string clientId, string secret)
         {
             HttpClient client = new HttpClient();
-            string uri = "https://app.load1.com/auth/token";
+            string uri = "https://app.load1.com/api/auth/token";
             var authenticateRequest = new AuthTokenRequest
             {
                 ClientID = clientId,
