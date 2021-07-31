@@ -37,36 +37,43 @@ namespace GraphQLClient.Tests
             {
                 Query = @"
 	            {
-                  vehicles {
-                    vehicleNumber
-                    type 
-                    serviceStatus 
-                    canCrossBorder
-                    boxDimensions {
-                      length
-                      unit
+                    vehicles {
+                        vehicleNumber
+                        type 
+                        serviceStatus 
+                        canCrossBorder
+                        boxDimensions {
+                            length
+                            width
+                            height
+                            unit
+                        }
+                        doorDimensions {
+                            width
+                            height
+                            unit
+                        }
+                        payload {
+                            value
+                            unit
+                        }    
+                        liftGate
+                        dockHigh    
+                        team
+                        availability {
+                            dateTime
+                            geoPoint {
+                            lat
+                            lng
+                            }
+                        }
+                        domicile
+                        hazmat
+                        temperatureControl
+                            driver {
+                                hoursOfServiceRemaining
+                            }
                     }
-                    payload {
-                      value
-                      unit
-                    }    
-                    liftGate
-                    dockHigh    
-                    isTeam
-                    availability {
-                      dateTime
-                      geoPoint {
-                        lat
-                        lng
-                      }
-                    }
-                    domicile
-                    hazmat
-                    temperatureControl
-                    driver {
-                      hoursOfServiceRemaining
-                    }
-                  }
                 }"
             };
 
@@ -86,34 +93,41 @@ namespace GraphQLClient.Tests
             var queryRequest = @"
             {
                 vehicles {
-                vehicleNumber
-                type 
-                serviceStatus 
-                canCrossBorder
-                boxDimensions {
-                    length
-                    unit
-                }
-                payload {
-                    value
-                    unit
-                }    
-                liftGate
-                dockHigh    
-                isTeam
-                availability {
-                    dateTime
-                    geoPoint {
-                    lat
-                    lng
+                    vehicleNumber
+                    type 
+                    serviceStatus 
+                    canCrossBorder
+                    boxDimensions {
+                        length
+                        width
+                        height
+                        unit
                     }
-                }
-                domicile
-                hazmat
-                temperatureControl
-                    driver {
-                        hoursOfServiceRemaining
+                    doorDimensions {
+                        width
+                        height
+                        unit
                     }
+                    payload {
+                        value
+                        unit
+                    }    
+                    liftGate
+                    dockHigh    
+                    team
+                    availability {
+                        dateTime
+                        geoPoint {
+                        lat
+                        lng
+                        }
+                    }
+                    domicile
+                    hazmat
+                    temperatureControl
+                        driver {
+                            hoursOfServiceRemaining
+                        }
                 }
             }";
 
@@ -121,7 +135,7 @@ namespace GraphQLClient.Tests
             vehicles.Count.ShouldBeGreaterThan(0);
             foreach (var vehicle in vehicles)
             {
-                Debug.WriteLine($"Number: {vehicle.vehicleNumber}, Service Status: {vehicle.serviceStatus}");
+                Debug.WriteLine($"Number: {vehicle.vehicleNumber}, Service Status: {vehicle.serviceStatus}, Box Dim Unit: {vehicle.boxDimensions.unit}");
             }
         }
     }
